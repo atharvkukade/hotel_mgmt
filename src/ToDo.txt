@@ -1,0 +1,36 @@
+CHECK OUT OF THE ROOM
+--How to implement checkout of the room in DB?
+---1.Updating roomDateID entry with currDate as checkOutDate.
+---2.Room can't be booked unless date change as time saved in DB up to day precision.
+
+-Making successful updation of stay charges 
+--1(a).Calculating appropiate num of days ( checkOut - checkIn )
+--2.Multiplying numOfDays * stayCharges per day
+--3.Updating it to DB.
+
+-CheckOut date can be before entered checkOut date at time of check in
+--Here assumption is made that guest will leave the room before or on the day of check out date and not after that. 
+
+--1(a)
+---Comparison currDate with checkOutDate
+----1.If greater then displaying error msg.
+----2.Else continue with 1(a) 
+
+--When user clicked on Search button stay charges displayed associated to the Guest without actual checking out the room in DB.
+----updateCheckOutDate method will not be called.
+----Only stayCharges get updated in Bill table first time, for the further clicks, it will populate Bill Frame with retrieved Bill POJO object.
+---- Second part of above statement executed only iff ROOM NUM in Search box REMAIN SAME otherwise above procedure done for different room.    
+
+--When user clicked on Checkout 
+----updateCheckOutDate method will be called.
+----Successful msg displayed.
+----Redirected to Main frame.
+
+
+----------Implementation done.Testing is remaining CHECKING OUT THE ROOM----------------
+
+Feature to be implemented
+1.Validating search field in Service and Bill frame.
+2.Storing date in db up to minutes precision for perfect checkout.
+3.Converting bill to PDF.
+4.Sending email of Bill PDF to customer through Gmail's SMTP.

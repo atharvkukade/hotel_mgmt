@@ -1,0 +1,31 @@
+6/7/2017
+-Error giving for if check in date selected as current date
+-Wrong output for check in and checj out date 
+	For duplicate entry for same roomNo in RoomDates it consider as seperate selection
+-executeUpdate() used for insert , update ,delete whose ResultSet returns nothing..
+-SQL query select TableName(Atrr1 , Atrr2 )values(?,?);
+-check appropriate PreparedStatement used for appropriate query
+-Do not use rs.getSomething after rs.close()
+-No.s used for rs.setSomething are not related to mysql column nos they are related to query
+-SimpleDateFormat smf = new SimpleDateFormat("yyyy-MM-dd") ;
+	used to set date in sql query to util.Date object
+-ResultSet cursor initially set to before first record always use rs.next() to fetch first record.
+-Before successfully saving data of guest before that RoomDate entry updated
+	--Sol :After successfully  execution of GuestDetails frame values inserted in RoomDate table and after roomDateID updated in GuestDetails roomDate Id Field.
+-You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where phoneNo='7575757575'' at line 1
+	
+-Updates Req..
+1.Check last entry of RoomDaates
+2.Mandate user to enter all fields of GuestDetails
+	if(!textFiledReference.getText().isEmpty())
+
+-if(checkInDate.before(new Date())
+returns false for current date bcoz current date is set to milli sec precision and our compilation time also taken into account by before() and hence
+It is time interval between creation new Date() and checking of before method with current tomestamp of new milli sec precision
+---Solution:-Setting Date object to yyyy-MM-dd precision
+					SimpleDateFormat smf = new SimpleDateFormat("yyyy-MM-dd") ;
+					Date formattedCheckInDate = smf.parse(smf.format(checkInDate)) ;
+					Date formattedCurrentDate = smf.parse(smf.format(new Date())) ;
+-Error:Table 'HotelBilling.ROOM' doesn't exist
+--Table and Attributes of table are case sensitive.
+-Error expected as laudryCost changed to laundryCost in Bill Table
